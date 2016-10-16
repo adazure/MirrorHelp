@@ -128,7 +128,7 @@
 
             switch (Service.Status) {
                 case Service.StatusType.Loading:
-                    console.log('Durum Kodu : code(' + Service.StatusType.Loading + ')\nBağlantı yükleniyor...');
+                    console.log('Durum Kodu : code(' + Service.Status + ')\nBağlantı yükleniyor...');
                     break;
 
                 case Service.StatusType.Success:
@@ -136,22 +136,22 @@
                     //datayı burada parse edelim
                     try {
                         var parse = JSON.parse(data);
-                        console.log('Durum Kodu : code(' + Service.StatusType.Success + ')\nBaşarılı bağlantı sağlandı');
+                        console.log('Durum Kodu : code(' + Service.Status + ')\nBaşarılı bağlantı sağlandı');
                     } catch (err) {
                         Error.message(err);
-                        console.log('Durum Kodu : code(' + Service.StatusType.Success + ')\nParse işlemi başarısız');
+                        console.log('Durum Kodu : code(' + Service.Status + ')\nParse işlemi başarısız');
                     }
 
                     break;
 
                 case Service.StatusType.Timeout:
                     Error.message('Bağlantı sağlanırken zaman aşımına uğradı');
-                    console.log('Durum Kodu : code(' + Service.StatusType.Timeout + ')\nBağlantı sağlanırken zaman aşımına uğradı');
+                    console.log('Durum Kodu : code(' + Service.Status + ')\nBağlantı sağlanırken zaman aşımına uğradı');
                     break;
 
                 case Service.StatusType.Error:
                     Error.message('Bağlantı sırasında bilinmeyen bir hata oluştu. Bağlantı sağlanamıyor');
-                    console.log('Durum Kodu : code(' + Service.StatusType.Error + ')\n' + data);
+                    console.log('Durum Kodu : code(' + Service.Status + ')\n' + data);
                     break;
             }
         }
